@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatSidenavContainer} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
 import {AlbumsModule} from './albums/albums.module';
 import { AppRoutingModule } from './/app-routing.module';
+import {SharedModule} from './shared/shared.module';
 
 
 
@@ -19,7 +20,9 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserAnimationsModule,
     MatButtonModule,
     AlbumsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    MatSidenavContainer
   ],
   providers: [],
   bootstrap: [AppComponent]
