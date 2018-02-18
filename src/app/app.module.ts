@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
+import {AlbumsModule} from './albums/albums.module';
 
 
 
@@ -15,7 +16,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    AlbumsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
