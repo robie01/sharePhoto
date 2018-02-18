@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import {AlbumsModule} from './albums/albums.module';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 
@@ -17,7 +18,8 @@ import {AlbumsModule} from './albums/albums.module';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    AlbumsModule
+    AlbumsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
