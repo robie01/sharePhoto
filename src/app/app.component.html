@@ -1,7 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-toolbar></app-toolbar>
-<router-outlet></router-outlet>
+
 <mat-sidenav-container class="main-container">
-  <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-  <mat-sidenav-content>Main content</mat-sidenav-content>
+  <mat-sidenav mode="side" [opened]="navBarOpen">
+    <mat-nav-list>
+      <a mat-list-item> Home </a>
+      <a mat-list-item> Albums</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-toolbar (navToggle)="toggleNav()">
+
+    </app-toolbar>
+    <div style="margin-left: 10px">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
+

@@ -1,0 +1,11 @@
+.main-container{
+height: 100vh;
+}
+mat-sidenav {
+  background: whitesmoke;
+  width: 250px;
+}
+
+mat-sidenav-content{
+  background: antiquewhite;
+}
