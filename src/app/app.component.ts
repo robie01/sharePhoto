@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  routes = [
+
+    {route: '/', title: 'Home', icon: 'home'},
+    {route: '/albums', title: 'Albums', icon: 'folder'}
+  ];
+
   navBarOpen = true;
 
   toggleNav() {

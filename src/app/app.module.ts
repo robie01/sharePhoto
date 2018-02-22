@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatListModule, MatSidenavModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -23,7 +23,8 @@ import {SharedModule} from './shared/shared.module';
     AppRoutingModule,
     SharedModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
 
   ],
   providers: [],
