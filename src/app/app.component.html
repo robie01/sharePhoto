@@ -8,13 +8,16 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content fxLayout="column">
     <app-toolbar (navToggle)="toggleNav()">
-
     </app-toolbar>
-    <div style="margin-left: 10px">
+    <div fxFlex>
       <router-outlet></router-outlet>
     </div>
+    <footer>
+      <hr>
+      <p>Footer</p>
+    </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

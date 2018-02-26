@@ -9,7 +9,8 @@ export class AppComponent {
   routes = [
 
     {route: '/', title: 'Home', icon: 'home'},
-    {route: '/albums', title: 'Albums', icon: 'folder'}
+    {route: '/albums', title: 'Albums', icon: 'folder'},
+    {route: '/users', title: 'Users', icon: 'accessibility' }
   ];
 
   navBarOpen = true;
