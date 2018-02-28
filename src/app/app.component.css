@@ -7,3 +7,8 @@ mat-sidenav {
 mat-sidenav-content{
   background: antiquewhite;
 }
+.hrColor {
+  background-color: black;
+  height: 2px;
+  border: 0;
+}

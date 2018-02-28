@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<mat-sidenav-container fxFlexFill>
-  <mat-sidenav mode="side" [opened]="navBarOpen">
+<mat-sidenav-container fxFlexFill (backdropClick)="toggleNav()">
+  <mat-sidenav [mode]="mode" [opened]="navBarOpen">
     <mat-nav-list>
       <a *ngFor="let route of routes" mat-list-item [routerLink]="route.route">
         <app-margin-icon [iconName]="route.icon"></app-margin-icon> {{route.title}} </a>
@@ -14,9 +14,9 @@
     <div fxFlex>
       <router-outlet></router-outlet>
     </div>
-    <footer>
-      <hr>
-      <p>Footer</p>
+    <footer fxLayout="column">
+      <hr class="hrColor" fxFlexFill>
+      <p fxFlexAlign="center">Copyright @ 2018 Business Academy South West</p>
     </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
