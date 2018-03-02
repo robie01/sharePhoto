@@ -7,12 +7,13 @@ import {Subscription} from 'rxjs/Subscription';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy{
+export class AppComponent implements OnDestroy {
   routes = [
 
     {route: '/', title: 'Home', icon: 'home'},
     {route: '/albums', title: 'Albums', icon: 'folder'},
-    {route: '/users', title: 'Users', icon: 'accessibility' }
+    {route: '/users', title: 'Users', icon: 'accessibility' },
+    {route: '/login', title: 'Login' , icon: 'input'}
   ];
 
   navBarOpen = true;
