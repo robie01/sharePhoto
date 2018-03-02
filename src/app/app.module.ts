@@ -9,7 +9,8 @@ import {AlbumsModule} from './albums/albums.module';
 import { AppRoutingModule } from './/app-routing.module';
 import {SharedModule} from './shared/shared.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
-
+import { environment } from '../environments/environment';
+import {AngularFireModule} from 'angularfire2';
 
 
 @NgModule({
@@ -26,7 +27,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AngularFireModule.initializeApp(environment.firebase)
+
 
 
   ],
