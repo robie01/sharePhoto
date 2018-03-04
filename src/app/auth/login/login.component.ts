@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AuthService} from '../shared/auth.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   logInForm: FormGroup;
   constructor(private authService: AuthService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private snackBar: MatSnackBar) {
 
     this.logInForm = fb.group({
       email: '',
@@ -31,7 +33,10 @@ export class LoginComponent implements OnInit {
         console.log('login clicked');
         this.authService.login(loginModel.email, loginModel.password)
           .then(() => console.log('logged in'))
-          .catch(error => console.log(error));
+          .catch(error => {
+            this.snackBar.open(error.message, '', {
+              duration: 5000 });
+          });
 
       }
 }
