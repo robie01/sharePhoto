@@ -27,8 +27,9 @@ export class LoginComponent implements OnInit {
             () => console.log('complete'));
       }
       login() {
+        const loginModel = this.logInForm.value;
         console.log('login clicked');
-        this.authService.login('p@gmail.dk', 'abcdefg')
+        this.authService.login(loginModel.email, loginModel.password)
           .then(() => console.log('logged in'))
           .catch(error => console.log(error));
 
