@@ -7,6 +7,13 @@
       <form (ngSubmit)="signup()" [formGroup]="signupForm" novalidate fxLayout="column">
         <mat-form-field>
           <input matInput placeholder="E-mail" formControlName="email">
+          <mat-error *ngIf="signupForm.get('email').hasError('required')">
+            Email required
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('email').hasError('email') &&
+                     !signupForm.get('email').hasError('required')">
+            Email is invalid
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Password" type="password" formControlName="password">
