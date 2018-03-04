@@ -1,7 +1,8 @@
 <mat-toolbar class="special">
 <mat-toolbar-row fxLayout="row">
     <button mat-mini-fab color="accent"
-            (click)="toggleNav()">
+            (click)="toggleNav()"
+            *ngIf="isLoggedIn">
       <mat-icon>list</mat-icon></button>
 
 <span fxFlex fxFlexOffset="10px">Family Sharing Photo App</span>
