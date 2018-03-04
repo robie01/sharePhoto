@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../shared/auth.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 
@@ -18,9 +18,9 @@ export class SignupComponent implements OnInit {
               private router: Router) {
 
     this.signupForm = fb.group({
-      email: '',
-      password: '',
-      repeatPassword: ''
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      repeatPassword: ['', [Validators.required]]
     });
   }
 
