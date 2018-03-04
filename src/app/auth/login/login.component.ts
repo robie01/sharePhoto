@@ -12,12 +12,18 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.login('e@gmail.dk', 'abcdefg')
+    this.authService.login('k@gmail.dk', 'abcdefg')
       .then(() => {console.log('logged in')
         this.authService.logout()
           .then(() => console.log('logged out'))
           .catch(error => console.log(error));
+
+        this.authService.isAuthenticated()
+          .subscribe(authState => console.log(authState),
+            error2 => console.log(error2),
+            () => console.log('complete'));
       })
       .catch(error => console.log(error));
+
   }
 }
