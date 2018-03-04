@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AuthService} from '../shared/auth.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,18 +10,27 @@ import {AuthService} from '../shared/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  logInForm: FormGroup;
+  constructor(private authService: AuthService,
+              private fb: FormBuilder) {
+
+    this.logInForm = fb.group({
+      email: '',
+      password: ''
+    });
+  }
 
   ngOnInit() {
-    this.authService.login('o@gmail.dk', 'abcdefg')
-      .then(() => {console.log('logged in')
-
         this.authService.isAuthenticated()
           .subscribe(authState => console.log(authState),
             error2 => console.log(error2),
             () => console.log('complete'));
-      })
-      .catch(error => console.log(error));
+      }
+      login() {
+        console.log('login clicked');
+        this.authService.login('p@gmail.dk', 'abcdefg')
+          .then(() => console.log('logged in'))
+          .catch(error => console.log(error));
 
-  }
+      }
 }
