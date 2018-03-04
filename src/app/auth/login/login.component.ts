@@ -12,11 +12,8 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.login('k@gmail.dk', 'abcdefg')
+    this.authService.login('o@gmail.dk', 'abcdefg')
       .then(() => {console.log('logged in')
-        this.authService.logout()
-          .then(() => console.log('logged out'))
-          .catch(error => console.log(error));
 
         this.authService.isAuthenticated()
           .subscribe(authState => console.log(authState),
