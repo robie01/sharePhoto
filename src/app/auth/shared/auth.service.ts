@@ -10,6 +10,10 @@ export class AuthService {
   }
 
   login(email: string, password: string): Promise<any> {
+    return this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(email, password);
+  }
+
+  signup(email: string, password: string): Promise<any> {
     return this.fireAuth.auth.createUserAndRetrieveDataWithEmailAndPassword(email, password);
   }
 

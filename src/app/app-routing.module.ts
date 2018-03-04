@@ -5,10 +5,12 @@ import {AlbumsListComponent} from './albums/albums-list/albums-list.component';
 import {AuthModule} from './auth/auth.module';
 import {LoginComponent} from './auth/login/login.component';
 import {AuthGuard} from './auth/shared/auth-guard.service';
+import {SignupComponent} from './auth/signup/signup.component';
 
 const routes: Routes = [
   { path: 'albums', component: AlbumsListComponent, canActivate: [AuthGuard]},
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent}
 ];
 @NgModule({
   imports: [

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           .then(() => {
             this.router.navigateByUrl('albums')
               .then(() => this.snackBar.open('Your logged in', '', {
-                duration: 5000 }));
+                duration: 3000 }));
 
           })
           .catch(error => {
