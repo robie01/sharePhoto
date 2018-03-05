@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 import {matchPassword} from '../shared/password.validator';
+import {User} from '../shared/User';
 
 @Component({
   selector: 'app-signup',
@@ -32,9 +33,9 @@ export class SignupComponent implements OnInit {
         () => console.log('complete'));
   }
   signup() {
-    const signUpModel = this.signupForm.value;
+    const signUpModel = this.signupForm.value as User
     console.log('login clicked');
-    this.authService.signup(signUpModel.email, signUpModel.password)
+    this.authService.signup(signUpModel)
       .then(() => {
         this.router.navigateByUrl('albums')
           .then(() => this.snackBar.open('You signed up', '', {
