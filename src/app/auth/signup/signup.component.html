@@ -19,6 +19,9 @@
           <mat-error *ngIf="fcError('password', 'required')">
             Password is required
           </mat-error>
+          <mat-error *ngIf="fcError('password', 'minlength', ['required'])">
+            Password needs to be atleast 6 characters
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Re-type_password" type="Password" formControlName="repeatPassword">
@@ -30,7 +33,9 @@
           </mat-error>
         </mat-form-field>
         <button mat-button color="primary"
-                type="submit">Sign up
+                type="submit"
+        [disabled]="signupForm.invalid">
+          Sign up
         </button>
       </form>
     </mat-card-content>
