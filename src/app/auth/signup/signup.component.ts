@@ -3,6 +3,7 @@ import {AuthService} from '../shared/auth.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
+import {matchPassword} from '../shared/password.validator';
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +21,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      repeatPassword: ['', [Validators.required]]
+      repeatPassword: ['', [Validators.required, matchPassword()]]
     });
   }
 

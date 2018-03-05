@@ -11,14 +11,23 @@
             Email required
           </mat-error>
           <mat-error *ngIf="fcError('email', 'email', ['required'])">
-            Email is invalid
+            Not a valid email
           </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Password" type="password" formControlName="password">
+          <mat-error *ngIf="fcError('password', 'required')">
+            Password is required
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Re-type_password" type="Password" formControlName="repeatPassword">
+          <mat-error *ngIf="fcError('repeatPassword', 'required')">
+            Repeat-password is required
+          </mat-error>
+          <mat-error *ngIf="fcError('repeatPassword', 'no-match', ['required'])">
+            Password does not match
+          </mat-error>
         </mat-form-field>
         <button mat-button color="primary"
                 type="submit">Sign up
