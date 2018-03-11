@@ -11,7 +11,8 @@ import {LoggedInGuard} from './auth/shared/logged-in.guard';
 const routes: Routes = [
   { path: 'albums', component: AlbumsListComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent, canActivate: [LoggedInGuard]},
-  { path: 'signup', component: SignupComponent, canActivate: [LoggedInGuard]}
+  { path: 'signup', component: SignupComponent, canActivate: [LoggedInGuard]},
+  { path: '', redirectTo: '/albums', pathMatch: 'full'},
 ];
 @NgModule({
   imports: [

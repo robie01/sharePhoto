@@ -49,7 +49,7 @@ export class SignupComponent implements OnInit {
 
   }
 
-  fcError(fc: string, error: string, pre: string[]): boolean {
+  fcError(fc: string, error: string, pre?: string[]): boolean {
 
     if (pre && pre.length > 0) {
       for (let i = 0; i < pre.length; i++) {
