@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../shared/auth.service';
+import {User} from '../shared/User';
 
 @Component({
   selector: 'app-profile',
@@ -9,16 +11,20 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class ProfileComponent implements OnInit {
 
   profileForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  user: User; // user local and not from firebase
+  constructor(private fb: FormBuilder,
+              private authService: AuthService) {
 
     this.profileForm = fb.group({
-      username: '',
+      username: ['', [Validators.required, Validators.minLength(5)]],
       firstname: '',
       lastname: '',
     });
   }
 
   ngOnInit() {
+    this.authService.getUser()
+      .subscribe(user => this.user = user);
   }
   save() {
   }

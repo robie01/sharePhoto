@@ -30,4 +30,11 @@ export class AuthService {
         return authState !== null;
       });
   }
+  getUser(): Observable<User> {
+
+    return this.fireAuth.authState
+      .map(authState => {
+        return {email: authState.email, uid: authState.uid};
+      });
+  }
 }
