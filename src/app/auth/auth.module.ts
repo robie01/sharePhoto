@@ -10,8 +10,6 @@ import {AuthGuard} from './shared/auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
 import {LoggedInGuard} from './shared/logged-in.guard';
 import {RouterModule} from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
-import {UserService} from '../user/shared/user.service';
 
 
 @NgModule({
@@ -28,7 +26,7 @@ import {UserService} from '../user/shared/user.service';
     RouterModule,
     MatIconModule
   ],
-  declarations: [LoginComponent, SignupComponent, ProfileComponent],
-  providers: [AuthService, AuthGuard, LoggedInGuard, UserService]
+  declarations: [LoginComponent, SignupComponent],
+  providers: [AuthService, AuthGuard, LoggedInGuard]
 })
 export class AuthModule { }
