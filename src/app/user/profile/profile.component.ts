@@ -17,17 +17,23 @@ export class ProfileComponent implements OnInit {
               private userService: UserService) {
 
     this.profileForm = fb.group({
-      username: ['', [Validators.required, Validators.minLength(5)]],
-      firstname: '',
-      lastname: '',
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      firstName: '',
+      lastName: '',
     });
   }
 
   ngOnInit() {
+    // this already checked the authentication of user.
     this.userService.getUser()
       .subscribe(user => this.user = user);
   }
   save() {
+    const model = this.profileForm.value as User;
+    model.uid = this.user.uid;
+    this.userService.update(model)
+      .then( () => console.log('saved'))
+      .catch(err => console.log('error' + err));
   }
   fcError(fc: string, error: string, pre?: string[]): boolean {
 

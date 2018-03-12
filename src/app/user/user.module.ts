@@ -5,6 +5,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSnackBarModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatButtonModule,
     MatCardModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    AngularFirestoreModule
   ],
   declarations: [ProfileComponent],
   providers: [UserService]

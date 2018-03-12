@@ -14,10 +14,10 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Firstname" formControlName="firstname">
+          <input matInput placeholder="Firstname" formControlName="firstName">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Lastname" formControlName="lastname">
+          <input matInput placeholder="Lastname" formControlName="lastName">
         </mat-form-field>
         <div fxLayout="row" fxLayoutAlign="stretch">
         <button mat-mini-fab color="accent">
@@ -25,8 +25,9 @@
         </button>
           <p fxFlex fxFlexOffset="10px">Change password</p>
           <button mat-button color="accent"
-                  type="button"
-          >Save
+                  type="submit"
+                  [disabled] = "profileForm.invalid">
+            Save
           </button>
         </div>
       </form>
