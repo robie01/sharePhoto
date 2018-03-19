@@ -4,6 +4,7 @@ import {User} from './User';
 import {AuthService} from '../../auth/shared/auth.service';
 import {AngularFirestore} from 'angularfire2/firestore';
 import 'rxjs/add/operator/first';
+import {EmptyObservable} from 'rxjs/observable/EmptyObservable';
 
 @Injectable()
 export class UserService {
@@ -11,17 +12,23 @@ export class UserService {
   constructor(private authService: AuthService,
               private afs: AngularFirestore) { }
 
-  getUser(): Observable<User> {
+  getUserInfo(): Observable<User> {
     // Get the AuthUser
     // Get the DBUser - SwitchMap ()
     // Merge both - Map
     return this.authService.getAuthUser() // this means to call once and then will shut down the connection.
       .switchMap(authUser => {
+        if (!authUser) {
+          return new EmptyObservable();
+        }
         return this.afs.doc<User>('users/' + authUser.uid).valueChanges()
           .map(dbUser => {
-            dbUser.uid = authUser.uid;
-            dbUser.email = authUser.email;
-            return dbUser;
+            if (dbUser) {
+              authUser.username = dbUser.username;
+              authUser.firstname = dbUser.firstname;
+              authUser.lastname = dbUser.lastname;
+            }
+            return authUser;
           });
       });
   }

@@ -34,6 +34,9 @@ export class AuthService {
 
     return this.fireAuth.authState
       .map(authState => {
+        if (!authState) {
+          return null;
+        }
         return {email: authState.email, uid: authState.uid};
       });
   }
