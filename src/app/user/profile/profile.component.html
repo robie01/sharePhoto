@@ -26,7 +26,7 @@
           <p fxFlex fxFlexOffset="10px">Change password</p>
           <button mat-button color="accent"
                   type="submit"
-                  [disabled] = "profileForm.invalid">
+                  [disabled] = "profileForm.invalid || unchanged()">
             Save
           </button>
         </div>
