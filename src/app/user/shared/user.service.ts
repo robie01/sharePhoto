@@ -12,7 +12,7 @@ export class UserService {
   constructor(private authService: AuthService,
               private afs: AngularFirestore) { }
 
-  getUserInfo(): Observable<User> {
+  getUser(): Observable<User> {
     // Get the AuthUser
     // Get the DBUser - SwitchMap ()
     // Merge both - Map

@@ -6,6 +6,7 @@ import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatIn
 import {ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
     MatCardModule,
     MatSnackBarModule,
     MatIconModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    SharedModule
   ],
   declarations: [ProfileComponent],
   providers: [UserService]
