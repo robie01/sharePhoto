@@ -38,6 +38,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.userSub.unsubscribe();
   }
+  hovering(event) {
+    console.log('in profile comp:', event);
+  }
 
   save() {
     const model = this.profileForm.value as User;
