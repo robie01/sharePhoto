@@ -2,6 +2,8 @@
   <mat-card fxFlex="50">
     <mat-card-header>
       <img
+        matTooltipPosition="before"
+        matTooltip="Drop image here"
         [@imageHover]="isHovering ? 'hoveringImage' : 'notHoveringImage'"
         appUpload
         (hovering)="hovering($event)"
