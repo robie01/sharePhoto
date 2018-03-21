@@ -7,6 +7,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {SharedModule} from '../shared/shared.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {SharedModule} from '../shared/shared.module';
     MatSnackBarModule,
     MatIconModule,
     AngularFirestoreModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   declarations: [ProfileComponent],
   providers: [UserService]

@@ -2,6 +2,7 @@
   <mat-card fxFlex="50">
     <mat-card-header>
       <img
+        [@imageHover]="isHovering ? 'hoveringImage' : 'notHoveringImage'"
         appUpload
         (hovering)="hovering($event)"
         mat-card-avatar

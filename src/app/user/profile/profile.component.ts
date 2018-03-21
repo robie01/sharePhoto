@@ -4,16 +4,27 @@ import {AuthService} from '../../auth/shared/auth.service';
 import {User} from '../shared/User';
 import {UserService} from '../shared/user.service';
 import {Subscription} from 'rxjs/Subscription';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  animations: [trigger('imageHover', [
+    state('hoveringImage', style({
+      opacity: 0.3
+    })),
+    state('notHoveringImage', style({
+      opacity: 1
+    })),
+    transition('hoveringImage => notHoveringImage', animate('200ms ease-in'))
+  ])]
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   profileForm: FormGroup;
   user: User; // user local and not from firebase
   userSub: Subscription;
+  isHovering: boolean;
 
   constructor(private fb: FormBuilder,
               private userService: UserService) {
@@ -38,8 +49,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.userSub.unsubscribe();
   }
-  hovering(event) {
-    console.log('in profile comp:', event);
+  hovering(isHovering: boolean) {
+    this.isHovering = isHovering;
   }
 
   save() {
