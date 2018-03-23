@@ -8,6 +8,7 @@
         (@imageHover.done)="changePic($event)"
         appUpload
         (hovering)="hovering($event)"
+        (dropped)="uploadNewImage($event)"
         mat-card-avatar
       [src]="img">
       <mat-card-title>{{user.username}}</mat-card-title>

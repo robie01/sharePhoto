@@ -63,6 +63,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
     }
     console.log('animation done', event);
   }
+
+  uploadNewImage(fileList) {
+    console.log('hi: ', fileList);
+  }
   save() {
     const model = this.profileForm.value as User;
     model.uid = this.user.uid;
