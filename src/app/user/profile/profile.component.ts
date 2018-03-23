@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   user: User; // user local and not from firebase
   userSub: Subscription;
   isHovering: boolean;
+  img: string;
 
   constructor(private fb: FormBuilder,
               private userService: UserService) {
@@ -53,6 +54,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.isHovering = isHovering;
   }
 
+  changePic(event) {
+
+    if (event.toState === 'hoveringImage') {
+      this.img = '../../../../assets/Images/ic_cloud_upload_black_24px.svg';
+    } else {
+      this.img = 'https://firebasestorage.googleapis.com/v0/b/familysharingapp-7a1c0.appspot.com/o/pic_1.png?alt=media&token=b33cd420-0c93-4fbd-bfba-df11f69e8132';
+    }
+    console.log('animation done', event);
+  }
   save() {
     const model = this.profileForm.value as User;
     model.uid = this.user.uid;

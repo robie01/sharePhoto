@@ -26,7 +26,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AngularFirestoreModule,
     SharedModule,
     BrowserAnimationsModule,
-    MatTooltipModule
+    MatTooltipModule,
+
   ],
   declarations: [ProfileComponent],
   providers: [UserService]
