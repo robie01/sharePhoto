@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AngularFireStorage, AngularFireUploadTask} from 'angularfire2/storage';
+import {AngularFireStorage} from 'angularfire2/storage';
 import {UploadTask} from './UploadTask';
 
 @Injectable()

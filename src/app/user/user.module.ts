@@ -11,6 +11,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {SharedModule} from '../shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FileSystemModule} from '../file-system/file-system.module';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SharedModule,
     BrowserAnimationsModule,
     MatTooltipModule,
+    FileSystemModule
 
   ],
   declarations: [ProfileComponent],
