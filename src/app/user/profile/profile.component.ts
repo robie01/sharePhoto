@@ -44,13 +44,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // this already checked the authentication of user.
-    this.userSub = this.userService.getUser()
+    this.userSub = this.userService.getUserProfileUrl()
       .subscribe(user => {
         this.user = user;
-        this.fileService.downloadUrlProfile(user.uid).subscribe(url => {
-          console.log('url', url);
-          this.img = url;
-        });
+        this.img = user.profileImgUrl;
         this.profileForm.patchValue(user);
         console.log(user);
       });
@@ -68,9 +65,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     if (event.toState === 'hoveringImage') {
       this.img = '../../../../assets/Images/ic_cloud_upload_black_24px.svg';
     } else {
-      this.img = 'https://firebasestorage.googleapis.com/v0/b/familysharingapp-7a1c0.appspot.com/o/pic_1.png?alt=media&token=b33cd420-0c93-4fbd-bfba-df11f69e8132';
+      this.img = this.user.profileImgUrl;
     }
-    console.log('animation done', event);
   }
 
   uploadNewImage(fileList) {
@@ -85,7 +81,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
           console.log('url', url);
           this.img = url;
         }
-      )
+      );
     } else {
       console.log('wrong: ');
       this.snack.open('You need to drop jpeg or png image!', null, {
