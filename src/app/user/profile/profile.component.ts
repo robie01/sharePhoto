@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   userSub: Subscription;
   isHovering: boolean;
   img: string;
+  srcLoaded: boolean;
 
   constructor(private fb: FormBuilder,
               private userService: UserService,
@@ -60,19 +61,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.isHovering = isHovering;
   }
 
-  changePic(event) {
-
-    if (event.toState === 'hoveringImage') {
-      this.img = '../../../../assets/Images/ic_cloud_upload_black_24px.svg';
-    } else {
-      this.img = this.user.profileImgUrl;
-    }
-  }
-
   uploadNewImage(fileList) {
     if
     (fileList && fileList.length === 1 &&
     ['image/jpeg', 'image/png'].indexOf(fileList.item(0).type) > -1) {
+      this.srcLoaded = false;
       console.log(fileList.item(0));
       const file = fileList.item(0);
       const path = 'profile-image/' + this.user.uid;
@@ -80,6 +73,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         url => {
           console.log('url', url);
           this.img = url;
+          this.hovering(false);
         }
       );
     } else {
@@ -88,7 +82,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         duration: 4000
       });
     }
-    console.log('hi: ', fileList);
+   this.hovering(false);
   }
   save() {
     const model = this.profileForm.value as User;

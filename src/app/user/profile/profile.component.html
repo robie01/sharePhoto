@@ -2,15 +2,21 @@
   <mat-card fxFlex="50">
     <mat-card-header>
       <img
+        [hidden]="!srcLoaded"
         matTooltipPosition="before"
         matTooltip="Drop image here"
         [@imageHover]="isHovering ? 'hoveringImage' : 'notHoveringImage'"
-        (@imageHover.done)="changePic($event)"
         appUpload
         (hovering)="hovering($event)"
         (dropped)="uploadNewImage($event)"
         mat-card-avatar
-      [src]="img">
+      [src]="isHovering ? '/assets/Images/ic_cloud_upload_black_24px.svg' : img"
+        (load)="srcLoaded = true">
+      <mat-spinner
+        mat-card-avatar
+        [diameter]="40"
+        *ngIf="!srcLoaded">
+      </mat-spinner>
       <mat-card-title>{{user.username}}</mat-card-title>
       <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
     </mat-card-header>
